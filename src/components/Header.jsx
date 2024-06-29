@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ dispatch }) => {
   return (
     <div className="w-[800px] h-[250px] mx-auto p-4">
       <h1 className="text-white text-4xl font-bold mb-4 text-center">
@@ -10,7 +10,10 @@ const Header = () => {
         <p className="text-white text-lg font-bold tracking-wide">
           Let's get started
         </p>
-        <button className="bg-slate-500 text-white px-4 py-2 rounded-full font-bold tracking-wide mt-2">
+        <button
+          onClick={() => dispatch({ type: "page", payload: "question" })}
+          className="bg-slate-500 text-white px-4 py-2 rounded-full font-bold tracking-wide mt-2"
+        >
           Click here for start
         </button>
       </div>

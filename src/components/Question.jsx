@@ -1,60 +1,79 @@
 import React, { useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import Answer from "./Answer";
 
-const Question = () => {
+const Question = ({ questions, dispatch, index }) => {
   const [clickedEl, setClickedEl] = useState(0);
+  const currentQuestion = questions[index];
 
   return (
     <div className="mt-8">
-      <h1 className="text-gray-200 text-2xl font-bold tracking-wide">Soru</h1>
+      <div className="flex items-center">
+        <h1 className="text-gray-200 text-2xl font-bold tracking-wide">
+          {currentQuestion.question}
+        </h1>
+        <button
+          className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto"
+          onClick={() => dispatch({ type: "page", payload: "main" })}
+        >
+          <i className="inline-block">
+            <FaArrowLeft></FaArrowLeft>
+          </i>
+          <span>Main Menu</span>
+        </button>
+      </div>
       <ul className="text-white px-2 font-semibold mt-4 flex flex-col gap-3">
-        <li
-          className={`hover:translate-x-4 duration-500 ${
-            clickedEl === 1 ? "translate-x-4" : ""
-          }`}
-          onClick={() => setClickedEl(1)}
-        >
-          <button className="bg-slate-500 w-[300px] px-4 py-2 rounded-full text-left">
-            Answer 1
-          </button>
-        </li>
-        <li
-          className={`hover:translate-x-4 duration-500 ${
-            clickedEl === 2 ? "translate-x-4" : ""
-          }`}
-          onClick={() => setClickedEl(2)}
-        >
-          <button className="bg-slate-500 w-[300px] px-4 py-2 rounded-full text-left">
-            Answer 1
-          </button>
-        </li>
-        <li
-          className={`hover:translate-x-4 duration-500 ${
-            clickedEl === 3 ? "translate-x-4" : ""
-          }`}
-          onClick={() => setClickedEl(3)}
-        >
-          <button className="bg-slate-500 w-[300px] px-4 py-2 rounded-full text-left">
-            Answer 1
-          </button>
-        </li>
-        <li
-          className={`hover:translate-x-4 duration-500 ${
-            clickedEl === 4 ? "translate-x-4" : ""
-          }`}
-          onClick={() => setClickedEl(4)}
-        >
-          <button className="bg-slate-500 w-[300px] px-4 py-2 rounded-full text-left">
-            Answer 1
-          </button>
-        </li>
+        <Answer
+          i={1}
+          clickedEl={clickedEl}
+          setClickedEl={setClickedEl}
+          option={currentQuestion.options[0]}
+        ></Answer>
+        <Answer
+          i={2}
+          clickedEl={clickedEl}
+          setClickedEl={setClickedEl}
+          option={currentQuestion.options[1]}
+        ></Answer>
+        <Answer
+          i={3}
+          clickedEl={clickedEl}
+          setClickedEl={setClickedEl}
+          option={currentQuestion.options[2]}
+        ></Answer>
+        <Answer
+          i={4}
+          clickedEl={clickedEl}
+          setClickedEl={setClickedEl}
+          option={currentQuestion.options[3]}
+        ></Answer>
       </ul>
       <div className="mt-6 flex">
         <button className="bg-green-600 text-white py-1 px-4 font-semibold tracking-wide rounded-full block">
-          Onayla
+          Approve
         </button>
-        <button className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto">
-          <span>Diğer Soru </span>
+        {index !== 0 && (
+          <button
+            className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-[520px]"
+            onClick={() => {
+              dispatch({ type: "prevQuestion" });
+              setClickedEl(0);
+            }}
+          >
+            <span>Prev</span>
+            <i className="inline-block">
+              <FaArrowLeft></FaArrowLeft>
+            </i>
+          </button>
+        )}
+        <button
+          className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto"
+          onClick={() => {
+            dispatch({ type: "nextQuestion" });
+            setClickedEl(0);
+          }}
+        >
+          <span>Next</span>
           <i className="inline-block">
             <FaArrowRight></FaArrowRight>
           </i>

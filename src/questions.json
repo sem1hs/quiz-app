@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "question": "1+1 = ",
+      "options": ["1", "2", "3", "4"],
+      "correctOption": 2
+    },
+    {
+      "question": "2+1 = ",
+      "options": ["5", "2", "13", "4"],
+      "correctOption": 2
+    },
+    {
+      "question": "3+1 = ",
+      "options": ["61", "21", "35", "4"],
+      "correctOption": 2
+    }
+  ]
+}
