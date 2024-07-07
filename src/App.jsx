@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import Header from "./components/Header";
 import Questions from "./components/Questions";
 import Error from "./components/Error";
+import Finish from "./components/Finish";
 
 function reducer(state, action) {
   const { type, payload } = action;
@@ -21,6 +22,20 @@ function reducer(state, action) {
         questions: [...newArr, payload].sort((a, b) => a.id - b.id),
       };
     }
+    case "finish": {
+      const newArr = [...state.questions];
+      let point = 0;
+      newArr.forEach((el) => {
+        if (el.yourOption === el.correctOption) point += 10;
+      });
+
+      return { ...state, page: "finish", point };
+    }
+    case "restart": {
+      const newArr = state.questions;
+      newArr.map((el) => (el.yourOption = null));
+      return { ...initialState, questions: newArr };
+    }
     default:
       break;
   }
@@ -30,9 +45,10 @@ const initialState = {
   page: "main",
   questions: [],
   index: 0,
+  point: 0,
 };
 function App() {
-  const [{ page, questions, index, yourOption }, dispatch] = useReducer(
+  const [{ page, questions, index, point }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -63,6 +79,7 @@ function App() {
           index={index}
         ></Questions>
       )}
+      {page === "finish" && <Finish dispatch={dispatch} point={point}></Finish>}
     </div>
   );
 }

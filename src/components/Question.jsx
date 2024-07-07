@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Answer from "./Answer";
+import Button from "./Button";
 
 const Question = ({ questions, dispatch, index }) => {
   const currentQuestion = questions[index];
-
+  const isLast = questions.length === index + 1;
   return (
     <div className="mt-8">
       <div className="flex items-center">
@@ -61,17 +62,9 @@ const Question = ({ questions, dispatch, index }) => {
             </i>
           </button>
         )}
-        <button
-          className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto"
-          onClick={() => {
-            dispatch({ type: "nextQuestion" });
-          }}
-        >
-          <span>Next</span>
-          <i className="inline-block">
-            <FaArrowRight></FaArrowRight>
-          </i>
-        </button>
+        <Button dispatch={dispatch} status={!isLast ? "Next" : "Finish"}>
+          {!isLast ? "Next" : "Finish"}
+        </Button>
       </div>
     </div>
   );

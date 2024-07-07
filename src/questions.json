@@ -5,12 +5,12 @@
       "question": "1+1 = ",
       "options": ["1", "2", "3", "4"],
       "yourOption": null,
-      "correctOption": 2
+      "correctOption": 1
     },
     {
       "id": 1,
       "question": "2+1 = ",
-      "options": ["5", "2", "13", "4"],
+      "options": ["5", "2", "3", "4"],
       "yourOption": null,
       "correctOption": 2
     },
@@ -19,7 +19,7 @@
       "question": "3+1 = ",
       "options": ["61", "21", "35", "4"],
       "yourOption": null,
-      "correctOption": 2
+      "correctOption": 3
     }
   ]
 }
