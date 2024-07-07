@@ -14,7 +14,7 @@ const Header = ({ dispatch }) => {
           onClick={() => dispatch({ type: "page", payload: "question" })}
           className="bg-slate-500 text-white px-4 py-2 rounded-full font-bold tracking-wide mt-2"
         >
-          Click here for start
+          Click here to start
         </button>
       </div>
       <p className="text-white w-max m-auto opacity-50 font-bold tracking-wide mt-16">
