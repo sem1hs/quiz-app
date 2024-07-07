@@ -4,7 +4,9 @@ const Answer = ({ i, option, dispatch, currentQuestion }) => {
   const hasClicked = currentQuestion.yourOption === i - 1;
 
   function handleClick(e) {
-    const ans = { ...currentQuestion, yourOption: i - 1 };
+    let yourOption = i - 1;
+    if (currentQuestion.yourOption === i - 1) yourOption = null;
+    const ans = { ...currentQuestion, yourOption };
     dispatch({ type: "setOption", payload: ans });
   }
   return (
@@ -17,7 +19,7 @@ const Answer = ({ i, option, dispatch, currentQuestion }) => {
       <button
         className={`bg-slate-${
           hasClicked ? "900" : "500"
-        } w-[300px] px-4 py-2 rounded-full text-left`}
+        } w-max px-4 py-2 rounded-full`}
       >
         {option}
       </button>

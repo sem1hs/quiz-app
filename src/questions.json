@@ -2,22 +2,121 @@
   "questions": [
     {
       "id": 0,
-      "question": "1+1 = ",
-      "options": ["1", "2", "3", "4"],
+      "question": "React nedir ve ne amaçla kullanılır ?",
+      "options": [
+        "Sunucu tarafında çalışan bir programlama dili",
+        "Kullanıcı arayüzleri oluşturmak için kullanılan bir JavaScript kütüphanesi",
+        "Veritabanı yönetim sistemi",
+        "Stil dosyalarını yönetmek için kullanılan bir araç"
+      ],
       "yourOption": null,
       "correctOption": 1
     },
     {
       "id": 1,
-      "question": "2+1 = ",
-      "options": ["5", "2", "3", "4"],
+      "question": "React bileşenleri nedir ve nasıl kullanılır ?",
+      "options": [
+        "HTML sayfalarını yönetmek için kullanılan şablonlar",
+        "React uygulamalarının temel yapı taşları",
+        "Veritabanı sorguları yazmak için kullanılan araçlar",
+        "CSS stillerini oluşturmak için kullanılan yöntemler"
+      ],
+      "yourOption": null,
+      "correctOption": 1
+    },
+    {
+      "id": 2,
+      "question": "State ve Props arasındaki fark nedir ?",
+      "options": [
+        "State, bileşenin dışından gelen verilerdir; Props ise bileşenin içinden gelen verilerdir",
+        "State, stil yönetimi için kullanılır; Props ise olay yönetimi için kullanılır",
+        "State, bileşenin iç durumu iken; Props bileşene dışarıdan aktarılan verilerdir",
+        "State ve Props arasında fark yoktur"
+      ],
       "yourOption": null,
       "correctOption": 2
     },
     {
-      "id": 2,
-      "question": "3+1 = ",
-      "options": ["61", "21", "35", "4"],
+      "id": 3,
+      "question": "React'ta lifecycle metodları nelerdir ?",
+      "options": [
+        "componentDidMount, componentDidUpdate, componentWillUnmount",
+        "onCreate, onUpdate, onDestroy",
+        "init, update, destroy",
+        "start, run, stop"
+      ],
+      "yourOption": null,
+      "correctOption": 0
+    },
+    {
+      "id": 4,
+      "question": "React Router nedir ve nasıl kullanılır ?",
+      "options": [
+        "Sunucu tarafında veri depolamak için kullanılan bir kütüphane",
+        "CSS stillerini yönetmek için kullanılan bir araç",
+        "Veritabanı bağlantılarını yönetmek için kullanılan bir yöntem",
+        "Kullanıcı arayüzlerini düzenlemek ve yönlendirme işlemlerini yönetmek için kullanılan bir kütüphane"
+      ],
+      "yourOption": null,
+      "correctOption": 3
+    },
+    {
+      "id": 5,
+      "question": "Context API nedir ve ne zaman kullanılır ?",
+      "options": [
+        "Veritabanı bağlantılarını yönetmek için kullanılır",
+        "CSS stillerini dinamik olarak değiştirmek için kullanılır",
+        "Uygulama genelinde global veri yönetimi sağlamak için kullanılır",
+        "Kullanıcı giriş çıkış işlemlerini yönetmek için kullanılır"
+      ],
+      "yourOption": null,
+      "correctOption": 2
+    },
+    {
+      "id": 6,
+      "question": "Hooks nedir ? useState ve useEffect kullanımı nasıldır ?",
+      "options": [
+        "React bileşenlerini stilize etmek için kullanılan fonksiyonlardır",
+        "Bileşenlerin yaşam döngüsünü yönetmek için kullanılan metodlardır",
+        "Fonksiyon bileşenlerinde state ve yan etkileri yönetmek için kullanılan özel fonksiyonlardır",
+        "Sunucu tarafında çalışan fonksiyonlardır"
+      ],
+      "yourOption": null,
+      "correctOption": 2
+    },
+    {
+      "id": 7,
+      "question": "Virtual DOM nedir ve React'ta nasıl çalışır ?",
+      "options": [
+        "Veritabanı sorgularını hızlandıran bir teknolojidir",
+        "Kullanıcı arayüzünü hızlandırmak için kullanılan hafif bir kopya DOM'dur",
+        "CSS stillerini dinamik olarak değiştirmek için kullanılan bir yöntemdir",
+        "JavaScript kodunu optimize etmek için kullanılan bir araçtır"
+      ],
+      "yourOption": null,
+      "correctOption": 1
+    },
+    {
+      "id": 8,
+      "question": "React'ta form elemanları nasıl yönetilir ?",
+      "options": [
+        "Form elemanları yalnızca HTML ile yönetilir",
+        "Form elemanları JavaScript ile direkt olarak yönetilir",
+        "Form elemanları state kullanılarak kontrol edilir",
+        "Form elemanları CSS ile yönetilir"
+      ],
+      "yourOption": null,
+      "correctOption": 2
+    },
+    {
+      "id": 8,
+      "question": "Redux nedir ve React uygulamaları ile nasıl çalışır ?",
+      "options": [
+        "React bileşenlerini stilize etmek için kullanılan bir araç",
+        "Kullanıcı arayüzlerini optimize etmek için kullanılan bir kütüphane",
+        "Sunucu tarafında veri depolamak için kullanılan bir yöntem",
+        "Uygulama genelinde state yönetimi sağlamak için kullanılan bir kütüphane"
+      ],
       "yourOption": null,
       "correctOption": 3
     }
