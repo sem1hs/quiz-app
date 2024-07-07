@@ -1,7 +1,8 @@
 import React from "react";
 import Question from "./Question";
+import Timer from "./Timer";
 
-const Questions = ({ questions, dispatch, index }) => {
+const Questions = ({ questions, dispatch, index, seconds }) => {
   const numQuestions = questions.length;
   return (
     <div className="w-[800px] mx-auto">
@@ -13,6 +14,7 @@ const Questions = ({ questions, dispatch, index }) => {
         dispatch={dispatch}
         index={index}
       ></Question>
+      <Timer dispatch={dispatch} seconds={seconds}></Timer>
     </div>
   );
 };

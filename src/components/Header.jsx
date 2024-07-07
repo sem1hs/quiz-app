@@ -17,6 +17,9 @@ const Header = ({ dispatch }) => {
           Click here for start
         </button>
       </div>
+      <p className="text-white w-max m-auto opacity-50 font-bold tracking-wide mt-16">
+        Copyright (c) 2024 Semih Şahinoğlu
+      </p>
     </div>
   );
 };

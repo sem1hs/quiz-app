@@ -28,13 +28,23 @@ function reducer(state, action) {
       newArr.forEach((el) => {
         if (el.yourOption === el.correctOption) point += 10;
       });
-
       return { ...state, page: "finish", point };
     }
     case "restart": {
       const newArr = state.questions;
       newArr.map((el) => (el.yourOption = null));
       return { ...initialState, questions: newArr };
+    }
+    case "sec": {
+      if (state.seconds === 0) {
+        const newArr = [...state.questions];
+        let point = 0;
+        newArr.forEach((el) => {
+          if (el.yourOption === el.correctOption) point += 10;
+        });
+        return { ...state, page: "finish", point };
+      }
+      return { ...state, seconds: state.seconds - 1 };
     }
     default:
       break;
@@ -46,9 +56,10 @@ const initialState = {
   questions: [],
   index: 0,
   point: 0,
+  seconds: 600,
 };
 function App() {
-  const [{ page, questions, index, point }, dispatch] = useReducer(
+  const [{ page, questions, index, point, seconds }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -77,6 +88,7 @@ function App() {
           questions={questions}
           dispatch={dispatch}
           index={index}
+          seconds={seconds}
         ></Questions>
       )}
       {page === "finish" && <Finish dispatch={dispatch} point={point}></Finish>}
