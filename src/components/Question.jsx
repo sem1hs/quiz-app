@@ -3,7 +3,6 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Answer from "./Answer";
 
 const Question = ({ questions, dispatch, index }) => {
-  const [clickedEl, setClickedEl] = useState(0);
   const currentQuestion = questions[index];
 
   return (
@@ -25,39 +24,35 @@ const Question = ({ questions, dispatch, index }) => {
       <ul className="text-white px-2 font-semibold mt-4 flex flex-col gap-3">
         <Answer
           i={1}
-          clickedEl={clickedEl}
-          setClickedEl={setClickedEl}
+          currentQuestion={currentQuestion}
           option={currentQuestion.options[0]}
+          dispatch={dispatch}
         ></Answer>
         <Answer
           i={2}
-          clickedEl={clickedEl}
-          setClickedEl={setClickedEl}
+          currentQuestion={currentQuestion}
           option={currentQuestion.options[1]}
+          dispatch={dispatch}
         ></Answer>
         <Answer
           i={3}
-          clickedEl={clickedEl}
-          setClickedEl={setClickedEl}
+          currentQuestion={currentQuestion}
           option={currentQuestion.options[2]}
+          dispatch={dispatch}
         ></Answer>
         <Answer
           i={4}
-          clickedEl={clickedEl}
-          setClickedEl={setClickedEl}
+          currentQuestion={currentQuestion}
           option={currentQuestion.options[3]}
+          dispatch={dispatch}
         ></Answer>
       </ul>
       <div className="mt-6 flex">
-        <button className="bg-green-600 text-white py-1 px-4 font-semibold tracking-wide rounded-full block">
-          Approve
-        </button>
         {index !== 0 && (
           <button
             className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-[520px]"
             onClick={() => {
               dispatch({ type: "prevQuestion" });
-              setClickedEl(0);
             }}
           >
             <span>Prev</span>
@@ -70,7 +65,6 @@ const Question = ({ questions, dispatch, index }) => {
           className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto"
           onClick={() => {
             dispatch({ type: "nextQuestion" });
-            setClickedEl(0);
           }}
         >
           <span>Next</span>
