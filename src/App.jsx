@@ -24,9 +24,10 @@ function reducer(state, action) {
     }
     case "finish": {
       const newArr = [...state.questions];
+      const value = 100 / newArr.length;
       let point = 0;
       newArr.forEach((el) => {
-        if (el.yourOption === el.correctOption) point += 10;
+        if (el.yourOption === el.correctOption) point += value;
       });
       return { ...state, page: "finish", point };
     }
@@ -38,9 +39,10 @@ function reducer(state, action) {
     case "sec": {
       if (state.seconds === 0) {
         const newArr = [...state.questions];
+        const value = 100 / newArr.length;
         let point = 0;
         newArr.forEach((el) => {
-          if (el.yourOption === el.correctOption) point += 10;
+          if (el.yourOption === el.correctOption) point += value;
         });
         return { ...state, page: "finish", point };
       }

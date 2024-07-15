@@ -5,7 +5,7 @@ import Timer from "./Timer";
 const Questions = ({ questions, dispatch, index, seconds }) => {
   const numQuestions = questions.length;
   return (
-    <div className="w-[800px] mx-auto">
+    <div className="w-[800px] mx-auto mt-16">
       <h1 className="text-white text-4xl font-bold text-center">
         {index + 1 + " / " + numQuestions} Question
       </h1>

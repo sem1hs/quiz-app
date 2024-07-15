@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import Answer from "./Answer";
 import Button from "./Button";
 

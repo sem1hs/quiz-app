@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = ({ dispatch }) => {
   return (
-    <div className="w-[800px] h-[250px] mx-auto p-4">
+    <div className="w-[800px] h-[250px] mx-auto p-32">
       <h1 className="text-white text-4xl font-bold mb-4 text-center">
         Welcome To Quiz App V1
       </h1>
@@ -17,7 +17,7 @@ const Header = ({ dispatch }) => {
           Click here to start
         </button>
       </div>
-      <p className="text-white w-max m-auto opacity-50 font-bold tracking-wide mt-16">
+      <p className="text-white w-max m-auto opacity-50 font-bold tracking-wide mt-64">
         Copyright (c) 2024 Semih Şahinoğlu
       </p>
     </div>
