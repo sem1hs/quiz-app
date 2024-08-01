@@ -1,6 +1,9 @@
 import React from "react";
+import { useQuestion } from "../context/QuestionContext";
 
-const Finish = ({ dispatch, point }) => {
+const Finish = () => {
+  const { state, dispatch } = useQuestion();
+  const { point } = state;
   return (
     <div className="w-max m-auto pt-8">
       <p className="text-white text-xl font-bold tracking-wide ">

@@ -1,6 +1,9 @@
 import React from "react";
+import { useQuestion } from "../context/QuestionContext";
 
-const Header = ({ dispatch }) => {
+const Header = () => {
+  const { dispatch } = useQuestion();
+
   return (
     <div className="w-[800px] h-[250px] mx-auto p-32">
       <h1 className="text-white text-4xl font-bold mb-4 text-center">

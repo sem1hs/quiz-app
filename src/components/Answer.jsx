@@ -1,6 +1,8 @@
 import React from "react";
+import { useQuestion } from "../context/QuestionContext";
 
-const Answer = ({ i, option, dispatch, currentQuestion }) => {
+const Answer = ({ i, option, currentQuestion }) => {
+  const { dispatch } = useQuestion();
   const hasClicked = currentQuestion.yourOption === i - 1;
 
   function handleClick(e) {

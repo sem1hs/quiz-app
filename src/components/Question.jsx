@@ -2,10 +2,15 @@ import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import Answer from "./Answer";
 import Button from "./Button";
+import { useQuestion } from "../context/QuestionContext";
 
-const Question = ({ questions, dispatch, index }) => {
+const Question = () => {
+  const { state, dispatch } = useQuestion();
+  const { questions, index } = state;
+
   const currentQuestion = questions[index];
   const isLast = questions.length === index + 1;
+
   return (
     <div className="mt-8">
       <div className="flex items-center">
@@ -23,38 +28,19 @@ const Question = ({ questions, dispatch, index }) => {
         </button>
       </div>
       <ul className="text-white px-2 font-semibold mt-4 flex flex-col gap-3">
-        <Answer
-          i={1}
-          currentQuestion={currentQuestion}
-          option={currentQuestion.options[0]}
-          dispatch={dispatch}
-        ></Answer>
-        <Answer
-          i={2}
-          currentQuestion={currentQuestion}
-          option={currentQuestion.options[1]}
-          dispatch={dispatch}
-        ></Answer>
-        <Answer
-          i={3}
-          currentQuestion={currentQuestion}
-          option={currentQuestion.options[2]}
-          dispatch={dispatch}
-        ></Answer>
-        <Answer
-          i={4}
-          currentQuestion={currentQuestion}
-          option={currentQuestion.options[3]}
-          dispatch={dispatch}
-        ></Answer>
+        {Array.from({ length: 4 }, (val, i) => (
+          <Answer
+            i={i - 1}
+            currentQuestion={currentQuestion}
+            option={currentQuestion.options[i]}
+          ></Answer>
+        ))}
       </ul>
       <div className="mt-6 flex">
         {index !== 0 && (
           <button
             className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-[520px]"
-            onClick={() => {
-              dispatch({ type: "prevQuestion" });
-            }}
+            onClick={() => dispatch({ type: "prevQuestion" })}
           >
             <span>Prev</span>
             <i className="inline-block">
@@ -62,7 +48,7 @@ const Question = ({ questions, dispatch, index }) => {
             </i>
           </button>
         )}
-        <Button dispatch={dispatch} status={!isLast ? "Next" : "Finish"}>
+        <Button status={!isLast ? "Next" : "Finish"}>
           {!isLast ? "Next" : "Finish"}
         </Button>
       </div>

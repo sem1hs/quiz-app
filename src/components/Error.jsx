@@ -1,6 +1,9 @@
 import React from "react";
+import { useQuestion } from "../context/QuestionContext";
 
-const Error = ({ dispatch }) => {
+const Error = () => {
+  const { dispatch } = useQuestion();
+
   return (
     <div className="w-max m-auto pt-10">
       <p className="text-white font-bold tracking-wide text-xl">
