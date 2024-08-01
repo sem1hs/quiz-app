@@ -1,18 +1,14 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 const QuestionContext = createContext();
 const useQuestion = () => useContext(QuestionContext);
 
 function reducer(state, action) {
   const { type, payload } = action;
+
   switch (type) {
-    case "page":
-      return { ...state, page: payload };
     case "data":
       return { ...state, questions: payload };
-    case "nextQuestion":
-      return { ...state, index: state.index + 1 };
-    case "prevQuestion":
-      return { ...state, index: state.index - 1 };
     case "setOption": {
       const newArr = state.questions.filter((el) => el.id !== payload.id);
       return {

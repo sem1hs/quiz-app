@@ -3,13 +3,16 @@ import { FaArrowLeft } from "react-icons/fa";
 import Answer from "./Answer";
 import Button from "./Button";
 import { useQuestion } from "../context/QuestionContext";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Question = () => {
-  const { state, dispatch } = useQuestion();
-  const { questions, index } = state;
+  const { state } = useQuestion();
+  const { questions } = state;
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  const index = +searchParams.get("id");
   const currentQuestion = questions[index];
-  const isLast = questions.length === index + 1;
+  const navigate = useNavigate();
 
   return (
     <div className="mt-8">
@@ -19,7 +22,7 @@ const Question = () => {
         </h1>
         <button
           className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-auto"
-          onClick={() => dispatch({ type: "page", payload: "main" })}
+          onClick={() => navigate("/")}
         >
           <i className="inline-block">
             <FaArrowLeft></FaArrowLeft>
@@ -31,26 +34,18 @@ const Question = () => {
         {Array.from({ length: 4 }, (val, i) => (
           <Answer
             i={i - 1}
+            key={i}
             currentQuestion={currentQuestion}
             option={currentQuestion.options[i]}
           ></Answer>
         ))}
       </ul>
       <div className="mt-6 flex">
-        {index !== 0 && (
-          <button
-            className="bg-slate-900 text-white py-1 px-4 font-semibold tracking-wide rounded-full flex items-center gap-1 ml-[520px]"
-            onClick={() => dispatch({ type: "prevQuestion" })}
-          >
-            <span>Prev</span>
-            <i className="inline-block">
-              <FaArrowLeft></FaArrowLeft>
-            </i>
-          </button>
+        {index > 0 && <Button type="prev">Prev</Button>}
+        {index === questions.length - 1 && (
+          <Button type="finish">Finish</Button>
         )}
-        <Button status={!isLast ? "Next" : "Finish"}>
-          {!isLast ? "Next" : "Finish"}
-        </Button>
+        {index !== questions.length - 1 && <Button type="next">Next</Button>}
       </div>
     </div>
   );

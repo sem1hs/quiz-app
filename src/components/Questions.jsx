@@ -2,10 +2,14 @@ import React from "react";
 import Question from "./Question";
 import Timer from "./Timer";
 import { useQuestion } from "../context/QuestionContext";
+import { useSearchParams } from "react-router-dom";
 
 const Questions = () => {
   const { state } = useQuestion();
-  const { questions, index } = state;
+  const { questions } = state;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const index = +searchParams.get("id");
 
   const numQuestions = questions.length;
   return (
